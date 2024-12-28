@@ -1,0 +1,839 @@
+// 7_10_3Dlg.cpp : implementation file
+//
+
+#include "stdafx.h"
+#include "7_10_3.h"
+#include "7_10_3Dlg.h"
+#include	"math.h"
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+#define	XREF	830
+#define	YREF	400
+/////////////////////////////////////////////////////////////////////////////
+// CAboutDlg dialog used for App About
+
+class CAboutDlg : public CDialog
+{
+public:
+	CAboutDlg();
+
+// Dialog Data
+	//{{AFX_DATA(CAboutDlg)
+	enum { IDD = IDD_ABOUTBOX };
+	//}}AFX_DATA
+
+	// ClassWizard generated virtual function overrides
+	//{{AFX_VIRTUAL(CAboutDlg)
+	protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	//}}AFX_VIRTUAL
+
+// Implementation
+protected:
+	//{{AFX_MSG(CAboutDlg)
+	//}}AFX_MSG
+	DECLARE_MESSAGE_MAP()
+};
+
+CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
+{
+	//{{AFX_DATA_INIT(CAboutDlg)
+	//}}AFX_DATA_INIT
+}
+
+void CAboutDlg::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+	//{{AFX_DATA_MAP(CAboutDlg)
+	//}}AFX_DATA_MAP
+}
+
+BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
+	//{{AFX_MSG_MAP(CAboutDlg)
+		// No message handlers
+	//}}AFX_MSG_MAP
+END_MESSAGE_MAP()
+
+/////////////////////////////////////////////////////////////////////////////
+// CMy7_10_3Dlg dialog
+
+CMy7_10_3Dlg::CMy7_10_3Dlg(CWnd* pParent /*=NULL*/)
+	: CDialog(CMy7_10_3Dlg::IDD, pParent)
+{
+	//{{AFX_DATA_INIT(CMy7_10_3Dlg)
+	//}}AFX_DATA_INIT
+	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
+	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+}
+
+void CMy7_10_3Dlg::DoDataExchange(CDataExchange* pDX)
+{
+	CDialog::DoDataExchange(pDX);
+	//{{AFX_DATA_MAP(CMy7_10_3Dlg)
+	DDX_Control(pDX, IDC_COMBO1, m_Board);
+	DDX_Control(pDX, IDC_COMBO2, m_Point);
+	DDX_Control(pDX, IDC_STATIC_1, m_Pic);
+	DDX_Control(pDX, IDC_MSCOMM1, m_Com1);
+	DDX_Control(pDX, IDC_MSCOMM10, m_Com10);
+	DDX_Control(pDX, IDC_MSCOMM11, m_Com11);
+	DDX_Control(pDX, IDC_MSCOMM12, m_Com12);
+	DDX_Control(pDX, IDC_MSCOMM13, m_Com13);
+	DDX_Control(pDX, IDC_MSCOMM14, m_Com14);
+	DDX_Control(pDX, IDC_MSCOMM2, m_Com2);
+	DDX_Control(pDX, IDC_MSCOMM3, m_Com3);
+	DDX_Control(pDX, IDC_MSCOMM4, m_Com4);
+	DDX_Control(pDX, IDC_MSCOMM5, m_Com5);
+	DDX_Control(pDX, IDC_MSCOMM6, m_Com6);
+	DDX_Control(pDX, IDC_MSCOMM7, m_Com7);
+	DDX_Control(pDX, IDC_MSCOMM8, m_Com8);
+	DDX_Control(pDX, IDC_MSCOMM9, m_Com9);
+	//}}AFX_DATA_MAP
+}
+
+BEGIN_MESSAGE_MAP(CMy7_10_3Dlg, CDialog)
+	//{{AFX_MSG_MAP(CMy7_10_3Dlg)
+	ON_WM_SYSCOMMAND()
+	ON_WM_PAINT()
+	ON_WM_QUERYDRAGICON()
+	ON_CBN_EDITCHANGE(IDC_COMBO1, OnEditchangeCombo1)
+	ON_CBN_EDITCHANGE(IDC_COMBO2, OnEditchangeCombo2)
+	ON_BN_CLICKED(IDC_BUTTON1, OnButton1)
+	ON_BN_CLICKED(IDC_STATIC_1, OnStatic1)
+	ON_CBN_SELCHANGE(IDC_COMBO1, OnSelchangeCombo1)
+	ON_CBN_SELCHANGE(IDC_COMBO2, OnSelchangeCombo2)
+	ON_WM_TIMER()
+	ON_BN_CLICKED(IDC_BUTTON2, OnButton2)
+	//}}AFX_MSG_MAP
+END_MESSAGE_MAP()
+
+/////////////////////////////////////////////////////////////////////////////
+// CMy7_10_3Dlg message handlers
+
+BOOL CMy7_10_3Dlg::OnInitDialog()
+{
+	CDialog::OnInitDialog();
+
+	// Add "About..." menu item to system menu.
+
+	// IDM_ABOUTBOX must be in the system command range.
+	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
+	ASSERT(IDM_ABOUTBOX < 0xF000);
+
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+	if (pSysMenu != NULL)
+	{
+		CString strAboutMenu;
+		strAboutMenu.LoadString(IDS_ABOUTBOX);
+		if (!strAboutMenu.IsEmpty())
+		{
+			pSysMenu->AppendMenu(MF_SEPARATOR);
+			pSysMenu->AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);
+		}
+	}
+
+	// Set the icon for this dialog.  The framework does this automatically
+	//  when the application's main window is not a dialog
+	SetIcon(m_hIcon, TRUE);			// Set big icon
+	SetIcon(m_hIcon, FALSE);		// Set small icon
+	
+	// TODO: Add extra initialization here
+	for(int i=0;i<15;i++)
+		for(int j=0;j<10;j++)
+			for(int	k=0;k<101;k++)
+			{
+				Temp[i][j][k]=rand()%100;
+			}
+
+
+	ColorList[0]=RGB(255,255,255);
+	ColorList[1]=RGB(29,5,141);
+	ColorList[2]=RGB(0,122,249);
+	ColorList[3]=RGB(0,211,121);
+	ColorList[4]=RGB(108,255,37);
+	ColorList[5]=RGB(255,227,14);
+	ColorList[6]=RGB(255,168,44);
+	ColorList[7]=RGB(241,92,196);
+	ColorList[8]=RGB(228,0,117);
+	ColorList[9]=RGB(148,0,1);
+
+	
+	time=0;
+	Combo_Board=Combo_Point=1;
+
+	return TRUE;  // return TRUE  unless you set the focus to a control
+}
+
+void CMy7_10_3Dlg::OnSysCommand(UINT nID, LPARAM lParam)
+{
+	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
+	{
+		CAboutDlg dlgAbout;
+		dlgAbout.DoModal();
+	}
+	else
+	{
+		CDialog::OnSysCommand(nID, lParam);
+	}
+}
+
+// If you add a minimize button to your dialog, you will need the code below
+//  to draw the icon.  For MFC applications using the document/view model,
+//  this is automatically done for you by the framework.
+
+void CMy7_10_3Dlg::OnPaint() 
+{
+	if (IsIconic())
+	{
+		CPaintDC dc(this); // device context for painting
+
+		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
+
+		// Center icon in client rectangle
+		int cxIcon = GetSystemMetrics(SM_CXICON);
+		int cyIcon = GetSystemMetrics(SM_CYICON);
+		CRect rect;
+		GetClientRect(&rect);
+		int x = (rect.Width() - cxIcon + 1) / 2;
+		int y = (rect.Height() - cyIcon + 1) / 2;
+
+		// Draw the icon
+		dc.DrawIcon(x, y, m_hIcon);
+	}
+	else
+	{
+		CDialog::OnPaint();
+	}
+}
+
+// The system calls this to obtain the cursor to display while the user drags
+//  the minimized window.
+HCURSOR CMy7_10_3Dlg::OnQueryDragIcon()
+{
+	return (HCURSOR) m_hIcon;
+}
+
+void CMy7_10_3Dlg::OnEditchangeCombo1() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnEditchangeCombo2() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void	CMy7_10_3Dlg::DrawLine(int x1, int y1, int	x2, int y2,COLORREF	color,CDC *pDC)
+{
+	CPen	myPen,*pCPen;
+	myPen.CreatePen(0,2,color);
+	pCPen=pDC->SelectObject(&myPen);
+	pDC->MoveTo(x1,y1);
+	pDC->LineTo(x2,y2);
+}
+
+void CMy7_10_3Dlg::OnButton1() 
+{
+	// TODO: Add your control notification handler code here
+	CDC *pDC,*OldDC;
+	CString str;
+	//(CButton*)this->GetDlgItem(IDC_STATIC);
+	pDC=m_Pic.GetDC();
+	//pDC=this->GetDC();
+	OldDC=pDC;
+	DrawLine(30,YREF,XREF,YREF,(0,0,0),pDC);
+	DrawLine(30,YREF,30,0,(0,0,0),pDC);
+	for(int i=0;i<11;i++)
+	{
+		str.Format(_T("%d"),i);
+		pDC->TextOut(i*80+30,YREF,str);
+	}
+	for( i=1;i<11;i++)
+	{
+		str.Format(_T("%d"),i*10);
+		pDC->TextOut(0,YREF-i*40,str);
+	}//________________________________________________________________________画出基本结构图
+	
+	time=0;
+	this->SetTimer(1,1000,0);
+
+
+
+	
+
+
+}
+
+void CMy7_10_3Dlg::OnStatic1() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnSelchangeCombo1() 
+{
+	// TODO: Add your control notification handler code here
+	//AfxMessageBox("gdsf");
+	//GetLBText( int nIndex, CString& rString );
+	CString strSelected;
+	int index=m_Board.GetCurSel();
+	if(index!=CB_ERR)
+	{
+		this->m_Board.GetLBText(index,strSelected);
+		this->Combo_Board=int(atof(strSelected));
+
+	}
+}
+
+void CMy7_10_3Dlg::OnSelchangeCombo2() 
+{
+	// TODO: Add your control notification handler code here
+		CString strSelected;
+	int index=m_Point.GetCurSel();
+	if(index!=CB_ERR)
+	{
+		this->m_Board.GetLBText(index,strSelected);
+		this->Combo_Point=int(atof(strSelected));
+
+	}
+}
+
+void CMy7_10_3Dlg::DrawDetail(int board,int	point,int time)
+{
+	int timepix1,temppix1,timepix2,temppix2;
+	timepix1=(time-1)*8;
+	temppix1=Temp[board][point][time-1]*4;
+	
+	timepix2=time*8;
+	temppix2=Temp[board][point][time]*4;
+	
+	
+	DrawLine(timepix1+30,YREF-temppix1,timepix2+30,YREF-temppix2,ColorList[point],m_Pic.GetDC());
+}
+
+//DEL void CMy7_10_3Dlg::OnTimer(UINT nIDEvent)
+//DEL {
+//DEL 
+//DEL 		AfxMessageBox("adf");
+//DEL 		CMy7_10_3Dlg::OnTimer(nIDEvent);
+//DEL 
+//DEL }
+
+void CMy7_10_3Dlg::OnTimer(UINT nIDEvent) 
+{
+	// TODO: Add your message handler code here and/or call default
+	int	i=1;
+	time++;
+	if(Combo_Board!=15&&Combo_Point!=10)
+		DrawDetail(Combo_Board,Combo_Point,time);
+	else	if(Combo_Board!=15&&Combo_Point==10)
+	{
+		for(i=1;i<10;i++)
+		{
+			DrawDetail(Combo_Board,i,time);
+		}
+	}
+	else	if(Combo_Board==15&&Combo_Point!=10)
+	{
+		for(i=1;i<15;i++)
+		{
+			DrawDetail(i,Combo_Point,time);
+		}
+	}
+	else	if(Combo_Board==15&&Combo_Point==10)
+	{
+		for(i=1;i<15;i++)
+			for(int	j=1;j<10;j++)
+			{
+				DrawDetail(i,j,time);
+			}
+	}
+		CDialog::OnTimer(nIDEvent);
+}
+
+BEGIN_EVENTSINK_MAP(CMy7_10_3Dlg, CDialog)
+    //{{AFX_EVENTSINK_MAP(CMy7_10_3Dlg)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM1, 1 /* OnComm */, OnOnCommMscomm1, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM14, 1 /* OnComm */, OnOnCommMscomm14, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM2, 1 /* OnComm */, OnOnCommMscomm2, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM3, 1 /* OnComm */, OnOnCommMscomm3, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM4, 1 /* OnComm */, OnOnCommMscomm4, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM5, 1 /* OnComm */, OnOnCommMscomm5, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM6, 1 /* OnComm */, OnOnCommMscomm6, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM7, 1 /* OnComm */, OnOnCommMscomm7, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM8, 1 /* OnComm */, OnOnCommMscomm8, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM9, 1 /* OnComm */, OnOnCommMscomm9, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM10, 1 /* OnComm */, OnOnCommMscomm10, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM11, 1 /* OnComm */, OnOnCommMscomm11, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM12, 1 /* OnComm */, OnOnCommMscomm12, VTS_NONE)
+	ON_EVENT(CMy7_10_3Dlg, IDC_MSCOMM13, 1 /* OnComm */, OnOnCommMscomm13, VTS_NONE)
+	//}}AFX_EVENTSINK_MAP
+END_EVENTSINK_MAP()
+
+void CMy7_10_3Dlg::OnOnCommMscomm1() 
+{
+	// TODO: Add your control notification handler code here
+	VARIANT			variant_inp;
+	COleSafeArray	safearray_inp;
+	LONG			len,k;
+	BYTE			rxdata[2048];
+	char			actdata[2048];
+	CString			strtemp,inter;//;
+	int				n0,n1,n2;
+	int				l,m,n;	
+		
+		if(m_Com1.GetCommEvent()==2)
+		{
+			variant_inp=m_Com1.GetInput();
+			safearray_inp=variant_inp;
+			len=safearray_inp.GetOneDimSize();
+			for(k=0;k<len;k++)
+			{
+				safearray_inp.GetElement(&k,rxdata+k);
+				BYTE bt=*(char*)(rxdata+k); //字符型 
+				strtemp.Format("%c",bt); //将字符送入临时变量strtemp存放 
+				inter+=strtemp; //______________________________变量
+			}
+			int n4=0,num;
+			n2=0;
+			n0=0;
+			while(n0!=-1)
+			{
+				n1=n2;
+				n0=n2=inter.Find('#',++n1);
+				if(n0==-1)
+					break;
+				strtemp=inter.Mid(n1,n2-n1);//_______________________________________变量复
+				num=strtemp.GetLength();
+				if(num!=10)continue;
+				lstrcpy(actdata,strtemp);
+
+				l=convertchar(actdata[0])*10+convertchar(actdata[1]);
+				m=convertchar(actdata[3]);
+				n=convertchar(actdata[5]);
+				if((47<actdata[6])&(actdata[6]<58))
+				{
+					n=convertchar(actdata[6])+n*10;
+				}
+				if((0<=l)&(l<=255)&(0<=m)&(m<=9)&(0<=n)&(n<=300))
+				{
+					int	o=handleddata[loc[1]][m];
+					handleddata[loc[1]][m]=n;
+				}
+				
+			}//_________________________________________________________________0的启示地址00110000;
+			this->UpdateData(false);	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm14() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm2() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm3() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm4() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm5() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm6() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm7() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm8() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm9() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm10() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm11() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm12() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnOnCommMscomm13() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CMy7_10_3Dlg::OnButton2() 
+{
+	// TODO: Add your control notification handler code here
+	CFile	file;
+	CString comname="infolist.txt";
+	if(!file.Open (comname,CFile::modeReadWrite))
+	{AfxMessageBox("library error,please set infolist");}
+	else
+	{
+		char	 buf[500];
+		int		 num=file.Read(buf,500);
+		int		 begin=1,end=1,flag=1,templen=0;
+		int		j=0,interi=0;
+		int		count=0;
+		comnum=0;
+		for(int i=0;i<num;i++)
+		{
+			if(buf[i]=='m')
+			{
+				comnum++;
+				j++;
+				count=0;
+				interi=i+1;
+				com[j]=convertchar(buf[interi]);
+				if(buf[++interi]!=',')
+					com[j]=convertchar(buf[interi])+com[j]*10;//______com	DEC
+				
+			}
+			if(buf[i]==',')
+			{
+				count++;
+				if(count==1)//________________________address		OCT
+				{
+				interi=i+3;
+				int mid=convertchar(buf[interi]);
+				adr[j]=convertchar(buf[interi])*16+convertchar(buf[interi+1]);
+				}
+				if(count==2)//_________________________location    DEC
+				{
+				interi=i+1;
+				loc[j]=convertchar(buf[interi])*10+convertchar(buf[interi+1]);
+				}
+			}
+		}
+	}
+
+	int i=1;
+	if(i<=comnum)
+	{	
+		if(m_Com1.GetPortOpen())
+			m_Com1.SetPortOpen(FALSE);
+
+			m_Com1.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com1.GetPortOpen())
+			m_Com1.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com1.SetSettings("19200,n,8,1");
+			m_Com1.SetRThreshold(32);
+			m_Com1.SetInputMode(1);
+			m_Com1.SetInputLen(0);
+			m_Com1.GetInput();
+			i++;
+	}
+	if(i<=comnum)
+	{	
+		if(m_Com2.GetPortOpen())
+			m_Com2.SetPortOpen(FALSE);
+
+			m_Com2.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com2.GetPortOpen())
+			m_Com2.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com2.SetSettings("19200,n,8,1");
+			m_Com2.SetRThreshold(32);
+			m_Com2.SetInputMode(1);
+			m_Com2.SetInputLen(0);
+			m_Com2.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com3.GetPortOpen())
+			m_Com3.SetPortOpen(FALSE);
+
+			m_Com3.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com3.GetPortOpen())
+			m_Com3.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com3.SetSettings("19200,n,8,1");
+			m_Com3.SetRThreshold(32);
+			m_Com3.SetInputMode(1);
+			m_Com3.SetInputLen(0);
+			m_Com3.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com4.GetPortOpen())
+			m_Com4.SetPortOpen(FALSE);
+
+			m_Com4.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com4.GetPortOpen())
+			m_Com4.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com4.SetSettings("19200,n,8,1");
+			m_Com4.SetRThreshold(32);
+			m_Com4.SetInputMode(1);
+			m_Com4.SetInputLen(0);
+			m_Com4.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com5.GetPortOpen())
+			m_Com5.SetPortOpen(FALSE);
+
+			m_Com5.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com5.GetPortOpen())
+			m_Com5.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com5.SetSettings("19200,n,8,1");
+			m_Com5.SetRThreshold(32);
+			m_Com5.SetInputMode(1);
+			m_Com5.SetInputLen(0);
+			m_Com5.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com6.GetPortOpen())
+			m_Com6.SetPortOpen(FALSE);
+
+			m_Com6.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com6.GetPortOpen())
+			m_Com6.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com6.SetSettings("19200,n,8,1");
+			m_Com6.SetRThreshold(32);
+			m_Com6.SetInputMode(1);
+			m_Com6.SetInputLen(0);
+			m_Com6.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com7.GetPortOpen())
+			m_Com7.SetPortOpen(FALSE);
+
+			m_Com7.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com7.GetPortOpen())
+			m_Com7.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com7.SetSettings("19200,n,8,1");
+			m_Com7.SetRThreshold(32);
+			m_Com7.SetInputMode(1);
+			m_Com7.SetInputLen(0);
+			m_Com7.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com8.GetPortOpen())
+			m_Com8.SetPortOpen(FALSE);
+
+			m_Com8.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com8.GetPortOpen())
+			m_Com8.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com8.SetSettings("19200,n,8,1");
+			m_Com8.SetRThreshold(32);
+			m_Com8.SetInputMode(1);
+			m_Com8.SetInputLen(0);
+			m_Com8.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com9.GetPortOpen())
+			m_Com9.SetPortOpen(FALSE);
+
+			m_Com9.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com9.GetPortOpen())
+			m_Com9.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com9.SetSettings("19200,n,8,1");
+			m_Com9.SetRThreshold(32);
+			m_Com9.SetInputMode(1);
+			m_Com9.SetInputLen(0);
+			m_Com9.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com10.GetPortOpen())
+			m_Com10.SetPortOpen(FALSE);
+
+			m_Com10.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com10.GetPortOpen())
+			m_Com10.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com10.SetSettings("19200,n,8,1");
+			m_Com10.SetRThreshold(32);
+			m_Com10.SetInputMode(1);
+			m_Com10.SetInputLen(0);
+			m_Com10.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com11.GetPortOpen())
+			m_Com11.SetPortOpen(FALSE);
+
+			m_Com11.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com11.GetPortOpen())
+			m_Com11.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com11.SetSettings("19200,n,8,1");
+			m_Com11.SetRThreshold(32);
+			m_Com11.SetInputMode(1);
+			m_Com11.SetInputLen(0);
+			m_Com11.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com12.GetPortOpen())
+			m_Com12.SetPortOpen(FALSE);
+
+			m_Com12.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com12.GetPortOpen())
+			m_Com12.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com12.SetSettings("19200,n,8,1");
+			m_Com12.SetRThreshold(32);
+			m_Com12.SetInputMode(1);
+			m_Com12.SetInputLen(0);
+			m_Com12.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com13.GetPortOpen())
+			m_Com13.SetPortOpen(FALSE);
+
+			m_Com13.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com13.GetPortOpen())
+			m_Com13.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com13.SetSettings("19200,n,8,1");
+			m_Com13.SetRThreshold(32);
+			m_Com13.SetInputMode(1);
+			m_Com13.SetInputLen(0);
+			m_Com13.GetInput();
+			i++;
+	}
+
+	if(i<=comnum)
+	{	
+		if(m_Com14.GetPortOpen())
+			m_Com14.SetPortOpen(FALSE);
+
+			m_Com14.SetCommPort(m_nPort=com[i]);//________________________________________________________端口设置
+			if(!m_Com14.GetPortOpen())
+			m_Com14.SetPortOpen(TRUE);
+		else
+			AfxMessageBox("cannot open serial port");//______________________________________first close the port thentest if open 
+
+			m_Com14.SetSettings("19200,n,8,1");
+			m_Com14.SetRThreshold(32);
+			m_Com14.SetInputMode(1);
+			m_Com14.SetInputLen(0);
+			m_Com14.GetInput();
+			i++;
+	}
+
+
+}
+
+int CMy7_10_3Dlg::convertchar(char a)
+{
+	
+
+	int x;
+	if((48<=a)&(a<=57))
+		x=(int)(a-'0');
+	else if((65<=(int)a)&((int)a<=70))
+		x=(int)(a-'A'+10);
+	else if((97<=(int)a)&((int)a<=102))
+		x=(int)(a-'a'+10);
+	else x=0;
+	return x;
+
+}

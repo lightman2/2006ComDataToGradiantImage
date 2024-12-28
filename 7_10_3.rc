@@ -1,0 +1,430 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\7_10_3.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\7_10_3.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 7_10_3"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "7_10_3 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2006",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_MY7_10_3_DIALOG DIALOGEX 0, 0, 684, 357
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "7_10_3"
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "打开串口",IDC_BUTTON2,630,333,47,16
+    EDITTEXT        IDC_EDIT2,607,151,70,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,607,181,70,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "调入",IDC_BUTTON4,607,197,70,16
+    COMBOBOX        IDC_COMBO1,629,25,48,142,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | CBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,629,49,48,120,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | CBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO3,650,75,27,82,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "确定 ",IDC_BUTTON1,630,96,47,16
+    CONTROL         "",IDC_MSCOMM7,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,155,7,25,25
+    CONTROL         "",IDC_MSCOMM6,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,130,7,25,25
+    CONTROL         "",IDC_MSCOMM8,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,179,7,25,25
+    LTEXT           "板",IDC_STATIC,613,27,10,9
+    LTEXT           "点",IDC_STATIC,614,49,11,8
+    CONTROL         "",IDC_MSCOMM1,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,7,7,25,25
+    CONTROL         "",IDC_MSCOMM2,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,32,7,25,25
+    CONTROL         "",IDC_MSCOMM3,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,57,7,25,25
+    CONTROL         "",IDC_MSCOMM4,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,81,7,25,25
+    CONTROL         "",IDC_MSCOMM5,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,106,7,25,25
+    CONTROL         "",IDC_MSCOMM9,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,203,7,25,25
+    CONTROL         "",IDC_MSCOMM10,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,227,7,25,25
+    CONTROL         "",IDC_MSCOMM11,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,253,7,25,25
+    CONTROL         "",IDC_MSCOMM12,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,277,7,25,25
+    CONTROL         "",IDC_MSCOMM13,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,301,7,25,25
+    CONTROL         "",IDC_MSCOMM14,"{648A5600-2C6E-101B-82B6-000000000014}",
+                    WS_TABSTOP,323,7,25,25
+    GROUPBOX        "即时数据",IDC_STATIC,607,7,70,107
+    GROUPBOX        "调入数据",IDC_STATIC,607,119,70,116
+    LTEXT           "月-日-时-分",IDC_STATIC,617,143,60,8
+    LTEXT           "时长（分）",IDC_STATIC,617,169,54,12
+    LTEXT           "每格时长",IDC_STATIC,613,77,36,8
+    CONTROL         "",IDC_STATIC_2,"Static",SS_WHITEFRAME,7,312,600,35
+    CONTROL         "",IDC_STATIC_1,"Static",SS_WHITERECT,7,7,600,300
+    PUSHBUTTON      "打开",IDC_BUTTON_FILE_DIALOG,607,284,36,17
+    PUSHBUTTON      "另存为",IDC_BUTTON5,641,284,36,17
+    PUSHBUTTON      "生成报告",IDC_BUTTON6,607,213,70,18
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "7_10_3 Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "7_10_3\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2006\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "7_10_3.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "7_10_3 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_MY7_10_3_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 677
+        VERTGUIDE, 607
+        TOPMARGIN, 7
+        HORZGUIDE, 157
+        HORZGUIDE, 301
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_MY7_10_3_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0034, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0035, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0036, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0037, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0038, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0039, 
+    IDC_COMBO1, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3131, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3331, "\000" 
+    IDC_COMBO1, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_COMBO1, 0x403, 4, 0
+0x4c41, 0x004c, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0034, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0035, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0036, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0037, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0038, 
+    IDC_COMBO2, 0x403, 2, 0
+0x0039, 
+    IDC_COMBO2, 0x403, 4, 0
+0x4c41, 0x004c, 
+    IDC_COMBO3, 0x403, 5, 0
+0x3031, 0xebc3, "\000" 
+    IDC_COMBO3, 0x403, 5, 0
+0x3032, 0xebc3, "\000" 
+    IDC_COMBO3, 0x403, 5, 0
+0x3035, 0xebc3, "\000" 
+    IDC_COMBO3, 0x403, 6, 0
+0x3031, 0xc330, 0x00eb, 
+    IDC_COMBO3, 0x403, 6, 0
+0x3032, 0xc330, 0x00eb, 
+    IDC_MSCOMM7, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM6, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM8, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM1, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM2, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM3, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM4, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM5, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM9, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM10, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM11, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM12, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM13, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    IDC_MSCOMM14, 0x376, 102, 0
+0x0013, 0x0000, 0x0043, 0x006f, 0x0070, 0x0079, 0x0072, 0x0069, 0x0067, 
+0x0068, 0x0074, 0x0020, 0x0028, 0x0063, 0x0029, 0x0020, 0x0031, 0x0039, 
+0x0039, 0x0034, 0x0020, 0x4321, 0x1234, 0x0008, 0x0000, 0x03ed, 0x0000, 
+0x03ed, 0x0000, 0x5601, 0x648a, 0x0000, 0x0006, 0x0000, 0x0001, 0x0400, 
+0x0000, 0x0200, 0x0000, 0x2580, 0x0000, 0x0000, 0x0008, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x003f, 0x0000, 0x0001, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 7_10_3(&A)..."
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\7_10_3.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
